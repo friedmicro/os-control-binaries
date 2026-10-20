@@ -214,7 +214,7 @@ func RemoteReboot(host string) error {
 
 func WakeThickClient() error {
 	_ = AthenaStop(WindowsVM)
-	if !PingHost(ThickClientHost) {
+	if PingHost(ThickClientHost) {
 		_ = RebootIfNotArch(ThickClientHost)
 		time.Sleep(RebootSleep)
 	}
